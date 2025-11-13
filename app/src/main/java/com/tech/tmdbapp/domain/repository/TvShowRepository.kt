@@ -1,4 +1,4 @@
-package com.tech.tmdbapp.domain
+package com.tech.tmdbapp.domain.repository
 
 import com.tech.tmdbapp.data.model.tvshow.TvShow
 
