@@ -1,4 +1,4 @@
-package com.tech.tmdbapp.data.repository
+package com.tech.tmdbapp.data.repository.movie.datasource
 
 import com.tech.tmdbapp.data.model.movie.Movie
 
