@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-    id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.kapt")
 }
 
 android {
@@ -40,11 +40,7 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
-    }
-
-
-    dataBinding{
-        enable = true
+        dataBinding = true
     }
 
 }
@@ -52,35 +48,38 @@ android {
 dependencies {
 
 
-    //croutine
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+    implementation(libs.androidx.activity)
+    implementation(libs.androidx.constraintlayout)
+    //coroutine
     /*val coroutines_version = "1.9.0"
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version")*/
 
     //room
-    val room_version = "2.6.1"
-
-    implementation("androidx.room:room-runtime:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-    ksp("androidx.room:room-compiler:$room_version")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    //noinspection KaptUsageInsteadOfKsp
+    kapt(libs.androidx.room.compiler)
 
 
     //dagger2
-    implementation("com.google.dagger:dagger:2.57.2")
-    ksp("com.google.dagger:dagger-compiler:2.57.2")
+    implementation(libs.dagger)
+    kapt(libs.dagger.compiler)
 
     /*live data dependency*/
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.4")
-    implementation("androidx.savedstate:savedstate-ktx:1.4.0")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.savedstate.ktx)
 
     //retrofit
-    implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.retrofit2:converter-gson:3.0.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.3.0")
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.logging.interceptor)
 
     //glide for image loading
-    implementation("com.github.bumptech.glide:glide:5.0.5")
-    ksp("com.github.bumptech.glide:ksp:5.0.5")
+    implementation(libs.glide)
+    kapt(libs.ksp)
 
 
     implementation(libs.androidx.core.ktx)

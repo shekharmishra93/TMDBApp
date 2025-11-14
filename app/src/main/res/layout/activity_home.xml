@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btnMovies"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/teal_700"
+            android:paddingLeft="24dp"
+            android:paddingTop="12sp"
+            android:paddingRight="24dp"
+            android:paddingBottom="12sp"
+            android:text="Movies"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnTvShows"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/teal_700"
+            android:paddingLeft="24dp"
+            android:paddingTop="12sp"
+            android:paddingRight="24dp"
+            android:paddingBottom="12sp"
+            android:text="TV Shows"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnArtists"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@color/teal_700"
+            android:paddingLeft="24dp"
+            android:paddingTop="12sp"
+            android:paddingRight="24dp"
+            android:paddingBottom="12sp"
+            android:text="artists"
+            android:textColor="@color/white"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+</layout>
