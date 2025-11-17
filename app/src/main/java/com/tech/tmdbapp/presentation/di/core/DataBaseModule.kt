@@ -1,4 +1,4 @@
-package com.tech.tmdbapp.presentation.di
+package com.tech.tmdbapp.presentation.di.core
 
 import android.content.Context
 import androidx.room.Room

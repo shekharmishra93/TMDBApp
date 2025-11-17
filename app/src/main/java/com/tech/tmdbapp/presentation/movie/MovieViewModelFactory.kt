@@ -3,16 +3,15 @@ package com.tech.tmdbapp.presentation.movie
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.CreationExtras
-import com.tech.tmdbapp.domain.usecase.GetArtistsUseCase
-import com.tech.tmdbapp.domain.usecase.UpdateArtistUseCase
-import com.tech.tmdbapp.presentation.artist.ArtistViewModel
+import com.tech.tmdbapp.domain.usecase.GetMoviesUseCase
+import com.tech.tmdbapp.domain.usecase.UpdateMoviesUseCase
 
-class ArtistViewModelFactory(
-    private val getArtistsUseCase: GetArtistsUseCase,
-    private val updateArtistUseCase: UpdateArtistUseCase
+class MovieViewModelFactory(
+    private val getMoviesUseCase: GetMoviesUseCase,
+    private val updateMoviesUseCase: UpdateMoviesUseCase
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>, extras: CreationExtras): T {
-        return ArtistViewModel(getArtistsUseCase, updateArtistUseCase) as T
+        return MovieViewModel(getMoviesUseCase, updateMoviesUseCase) as T
     }
 }

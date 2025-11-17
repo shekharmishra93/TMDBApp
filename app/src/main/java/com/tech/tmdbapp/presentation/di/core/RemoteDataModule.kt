@@ -1,4 +1,4 @@
-package com.tech.tmdbapp.presentation.di
+package com.tech.tmdbapp.presentation.di.core
 
 import com.tech.tmdbapp.data.api.TMDBService
 import com.tech.tmdbapp.data.repository.artist.datasource.ArtistRemoteDataSource
