@@ -13,7 +13,7 @@ class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
 
     private val movieList = ArrayList<Movie>()
 
-    private fun setList(movies: List<Movie>) {
+    fun setList(movies: List<Movie>) {
         movieList.clear()
         movieList.addAll(movies)
     }
@@ -41,7 +41,7 @@ class MovieAdapter : RecyclerView.Adapter<MyViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-       return movieList.size
+        return movieList.size
     }
 }
 
