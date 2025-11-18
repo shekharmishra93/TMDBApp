@@ -10,7 +10,7 @@ import dagger.Provides
 @Module
 class TvShowModule {
 
-    @MovieScope
+    @TvShowScope
     @Provides
     fun providesTvShowViewModelFactory(
         getTvShowUseCase: GetTvShowsUseCase,
