@@ -2,6 +2,9 @@ package com.tech.tmdbapp.presentation.movie
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +32,38 @@ class MovieActivity : AppCompatActivity() {
         movieViewModel = ViewModelProvider(this, factory).get(MovieViewModel::class.java)
         initRecyclerView()
         displayPopularMovies()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.update, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_update -> {
+                updateMovies()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun updateMovies() {
+        binding.movieProgressBar.visibility = View.VISIBLE
+        val response = movieViewModel.updateMovieList()
+        response.observe(this, {
+            if (it != null) {
+                adapter.setList(it)
+                adapter.notifyDataSetChanged()
+                binding.movieProgressBar.visibility = View.GONE
+            } else {
+                binding.movieProgressBar.visibility = View.GONE
+
+            }
+        })
     }
 
 
