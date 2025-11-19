@@ -98,6 +98,10 @@ dependencies {
     testImplementation(libs.google.truth)
     testImplementation(libs.androidx.core.testing)
 
+    //roboelectric
+    testImplementation("org.robolectric:robolectric:4.16")
+
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
