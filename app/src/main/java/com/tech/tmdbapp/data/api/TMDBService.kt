@@ -8,11 +8,11 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface TMDBService {
-    //sample URL = https://api.themoviedb.org/3/movie/popular?api_key=fe21263f0196f1277a54071e422055c1
+    //sample URL = https://api.themoviedb.org/3/movie/popular?api_key=[your api key]
     /*
     * Base Url = https://api.themoviedb.org/3/
     * End Points = movie/popular
-    *Query Parameters = ?api_key=fe21263f0196f1277a54071e422055c1
+    *Query Parameters = ?api_key=[your api key]
     * */
 
     @GET("movie/popular")
