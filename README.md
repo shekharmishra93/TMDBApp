@@ -55,3 +55,84 @@ To run locally, you’ll need your own API key:
 
    ```properties
    TMDB_API_KEY = "your_api_key_here"
+
+
+=========================================================================================================================================================================
+=========================================================================================================================================================================
+=========================================================================================================================================================================
+**Some Necessory changes which are being done to migrate it from dagger2 to dagger-hilt in this project are :
+Here are the steps (TMDBClient project with Hilt available to download in the resources of this lesson)**
+
+1) Fix Gradle files
+
+
+
+For the app level gradle file,
+
+Remove dagger dependencies and sync.
+
+Add hilt plugin definition to the top.
+
+Add hilt dependencies to the bottom.
+
+For the project level gradle file.
+
+Add hilt classpath
+
+Finally sync the gradle. (do not rebuild the project at this point)
+
+
+
+2) Application class(App.kt)
+
+Remove all the codes.
+
+Add this code part.
+
+@HiltAndroidApp
+class App : Application()
+
+
+3) di package.
+
+Delete Injector interface.
+
+
+
+4) di/core package.
+
+Delete AppCoponent.
+
+Delete AppModule
+
+Add @InstallIn(SingletonComponent::class) to all Modules.
+
+In the DataBaseModule, for the context use app:Application
+
+In NetModule, remove the constructor parameter and use BuildConfig.BASE_URL instead of it.
+
+In RemoteDataModule, remove the constructor parameter and use BuildConfig.API_KEY instead of it.
+
+
+
+5) di/artist , di/movie, di/tvshow packages.
+
+Delete all Scopes and Subcomponents.
+
+Use @InstallIn(ActivityComponent::class) and @ActivityScoped instead. (please check the final project of this lesson)
+
+
+
+6)ArtistActivity, MovieActivity and TvShowAcitivity
+
+Annotate each activity class with @AndroidEntryPoint.
+
+Remove dagger injector code part.
+
+
+
+7) Final Step.
+
+Clean and Rebuild the project
+
+Then, run the app. It will work as it worked before.
