@@ -15,6 +15,9 @@ Built with **Kotlin**, **MVVM**, **Dagger 2**, **Room**, **Retrofit**, and **Cor
 > *(Add a GIF or screenshot of your app UI here)*  
 > Example:  
 > ![TMDB App Demo](screenshots/demo.gif)
+>
+> 
+<img width="1080" height="1920" alt="Screenshot_20251120_134819" src="https://github.com/user-attachments/assets/dfa5956b-49d3-474a-821e-9f6b0329a824" />
 
 ---
 
