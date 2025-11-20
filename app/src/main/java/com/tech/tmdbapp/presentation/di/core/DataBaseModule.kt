@@ -1,5 +1,6 @@
 package com.tech.tmdbapp.presentation.di.core
 
+import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import com.tech.tmdbapp.data.db.ArtistDao
@@ -8,15 +9,18 @@ import com.tech.tmdbapp.data.db.TMDBDatabase
 import com.tech.tmdbapp.data.db.TvShowDao
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+@InstallIn(SingletonComponent::class)
 @Module
 class DataBaseModule {
 
     @Singleton
     @Provides
-    fun provideMovieDataBase(context: Context): TMDBDatabase {
-        return Room.databaseBuilder(context, TMDBDatabase::class.java, "tmdbclient").build()
+    fun provideMovieDataBase(app: Application): TMDBDatabase {
+        return Room.databaseBuilder(app, TMDBDatabase::class.java, "tmdbclient").build()
     }
 
 

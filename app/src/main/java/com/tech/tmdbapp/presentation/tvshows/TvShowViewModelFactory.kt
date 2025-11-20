@@ -7,6 +7,7 @@ import com.tech.tmdbapp.domain.usecase.GetTvShowsUseCase
 import com.tech.tmdbapp.domain.usecase.UpdateTvShowUseCase
 import com.tech.tmdbapp.presentation.artist.ArtistViewModel
 
+@Suppress("UNCHECKED_CAST")
 class TvShowViewModelFactory(
     private val getTvShowsUseCase: GetTvShowsUseCase,
     private val updateTvShowUseCase: UpdateTvShowUseCase

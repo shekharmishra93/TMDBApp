@@ -1,8 +1,11 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id("org.jetbrains.kotlin.kapt")
+    alias(libs.plugins.google.dagger.hilt)
 }
 
 android {
@@ -32,18 +35,29 @@ android {
         }
     }
     compileOptions {
+        //sourceCompatibility = JavaVersion.VERSION_11
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
+    /*kotlinOptions {
         jvmTarget = "11"
+    }*/
+
+    kotlin{
+        compilerOptions{
+            jvmTarget.set(JvmTarget.JVM_11)
+        }
     }
+
     buildFeatures {
         compose = true
         buildConfig = true
         dataBinding = true
     }
 
+    kapt {
+        correctErrorTypes = true
+    }
 }
 
 dependencies {
@@ -67,9 +81,14 @@ dependencies {
     kapt(libs.androidx.room.compiler)
 
 
-    //dagger2
+    /*//dagger2
     implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
+    kapt(libs.dagger.compiler)*/
+
+    //hilt
+    implementation(libs.google.dagger.hilt)
+
+    kapt(libs.google.dagger.hilt.compiler)
 
     /*live data dependency*/
     implementation(libs.androidx.lifecycle.livedata.ktx)

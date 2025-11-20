@@ -13,9 +13,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tech.tmdbapp.R
 import com.tech.tmdbapp.databinding.ActivityTvShowBinding
-import com.tech.tmdbapp.presentation.di.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class TvShowActivity : AppCompatActivity() {
 
     @Inject
@@ -28,7 +29,7 @@ class TvShowActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tv_show)
 
-        (application as Injector).createTvShowComponent().inject(this)
+
         tvShowViewModel = ViewModelProvider(this, factory).get(TvShowViewModel::class.java)
         initRecyclerView()
         displayPopularMovies()

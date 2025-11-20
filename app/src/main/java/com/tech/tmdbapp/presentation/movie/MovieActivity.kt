@@ -13,9 +13,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tech.tmdbapp.R
 import com.tech.tmdbapp.databinding.ActivityMovieBinding
-import com.tech.tmdbapp.presentation.di.Injector
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class MovieActivity : AppCompatActivity() {
 
     @Inject
@@ -28,7 +29,6 @@ class MovieActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_movie)
 
-        (application as Injector).createMovieSubComponent().inject(this)
         movieViewModel = ViewModelProvider(this, factory).get(MovieViewModel::class.java)
         initRecyclerView()
         displayPopularMovies()

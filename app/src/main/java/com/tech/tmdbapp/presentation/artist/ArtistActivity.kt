@@ -14,10 +14,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tech.tmdbapp.R
 import com.tech.tmdbapp.databinding.ActivityArtistBinding
-import com.tech.tmdbapp.presentation.di.Injector
 import com.tech.tmdbapp.presentation.movie.MovieViewModel
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
+@AndroidEntryPoint
 class ArtistActivity : AppCompatActivity() {
 
     @Inject
@@ -31,7 +32,6 @@ class ArtistActivity : AppCompatActivity() {
         enableEdgeToEdge()
         binding = DataBindingUtil.setContentView(this, R.layout.activity_artist)
 
-        (application as Injector).createArtistSubComponent().inject(this)
         artistViewModel = ViewModelProvider(this, factory).get(ArtistViewModel::class.java)
         initRecyclerView()
         displayPopularArtists()

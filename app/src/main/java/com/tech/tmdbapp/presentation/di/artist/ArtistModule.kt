@@ -5,11 +5,16 @@ import com.tech.tmdbapp.domain.usecase.UpdateArtistUseCase
 import com.tech.tmdbapp.presentation.artist.ArtistViewModelFactory
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 
+
+@InstallIn(ActivityComponent::class)
 @Module
 class ArtistModule {
 
-    @ArtistScope
+    @ActivityScoped
     @Provides
     fun providesArtistViewModelFactory(
         getArtistsUseCase: GetArtistsUseCase,

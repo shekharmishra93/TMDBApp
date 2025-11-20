@@ -11,8 +11,11 @@ import com.tech.tmdbapp.data.repository.tvshow.datasource.TvShowLocalDataSource
 import com.tech.tmdbapp.data.repository.tvshow.datasourceimpl.TvShowLocalDataSourceImpl
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
+@InstallIn(SingletonComponent::class)
 @Module
 class LocalDataModule {
 

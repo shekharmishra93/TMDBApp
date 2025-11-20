@@ -5,11 +5,15 @@ import com.tech.tmdbapp.domain.usecase.UpdateMoviesUseCase
 import com.tech.tmdbapp.presentation.movie.MovieViewModelFactory
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
+import dagger.hilt.android.scopes.ActivityScoped
 
+@InstallIn(ActivityComponent::class)
 @Module
 class MovieModule {
 
-    @MovieScope
+    @ActivityScoped
     @Provides
     fun providesMovieViewModelFactory(
         getMovieUseCase: GetMoviesUseCase,

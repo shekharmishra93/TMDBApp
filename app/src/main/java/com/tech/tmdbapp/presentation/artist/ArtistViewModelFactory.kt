@@ -6,6 +6,7 @@ import androidx.lifecycle.viewmodel.CreationExtras
 import com.tech.tmdbapp.domain.usecase.GetArtistsUseCase
 import com.tech.tmdbapp.domain.usecase.UpdateArtistUseCase
 
+@Suppress("UNCHECKED_CAST")
 class ArtistViewModelFactory(
     private val getArtistsUseCase: GetArtistsUseCase,
     private val updateArtistUseCase: UpdateArtistUseCase

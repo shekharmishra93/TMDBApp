@@ -29,6 +29,7 @@ savedstateKtx = "1.4.0"
 truthVersion = "1.4.5"
 junitJunit = "4.12"
 junitKtx = "1.3.0"
+hilt = "2.57.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -69,8 +70,12 @@ retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit
 junit-junit = { group = "junit", name = "junit", version.ref = "junitJunit" }
 androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitKtx" }
 
+google-dagger-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+google-dagger-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 
